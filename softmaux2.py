@@ -127,21 +127,17 @@ for k in range(0,len(datos[:,0])):
     opsof=(np.exp(pesos[0]*datos[k,0]+pesos[1]*datos[k,1]+b))/total
     sfmax.append([opsof])
     
-# #Graficamos el mapa de calor.
-# xx, yy = np.mgrid[-0.05:1.05:.01, -0.05:1.05:.01]
-# grid = np.c_[xx.ravel(), yy.ravel()]
-# Z = prediccion(grid, W, b)[:, 1].reshape(xx.shape)
-# graf.pcolormesh(xx, yy, Z, cmap=graf.cm.Spectral, shading='auto')
+# se grafica las probabilidades:
 
 
-x111=np.linspace(0,1,5)                              #vector entre 0 10 con 10 espacios entre si 
+x111=np.linspace(0,1,5)                            
 y111=np.linspace(0,1,5)
 #y111=np.linspace(0,0.016,10)
 A,B=np.meshgrid(x111,y111)  
 graf.xlim() 
-graf.ylim()                           # malla necesaria para el contorno 
+graf.ylim()                           
 
-z=np.array((W[0]*A)+(W[1]*B)+b)                    # funcion lineal con base en la malla creada 
+z=np.array((W[0]*A)+(W[1]*B)+b)                   
 
 
 graf.figure(figsize=(9,6))
